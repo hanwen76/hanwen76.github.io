@@ -2,8 +2,8 @@
 
 **This is a taste of building up my first own website!** Right here, you will be able to explore something useful in web tech. 
 
-[demo](https://hanwen76.github.io/demo/)
+[demo](https://hanwen76.github.io/demo)
 
-[shopping car](https://hanwen76.github.io/shopping_car/)
+[shopping car](https://hanwen76.github.io/shopping_car)
 
-[my vue app](https://hanwen76.github.io/dist/)
+[my vue app](https://hanwen76.github.io/dist)
