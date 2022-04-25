@@ -1,6 +1,6 @@
-## Welcome to My Pages
+## Welcome to Hanwen's Pages
 
-**This is a taste of building up my own website!** You can use the [editor on GitHub](https://github.com/hanwen76/hanwen76.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+**This is a taste of building up my own website!** Right here, you gonna explore something useful in machine learning. You can use the [editor on GitHub](https://github.com/hanwen76/hanwen76.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
