@@ -4,7 +4,7 @@
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-[demo](https://github.com/hanwen76/hanwen76.github.io/demo/)
+[demo](https://github.com/hanwen76/hanwen76.github.io/blob/main/demo.md)
 
 ### Markdown
 
