@@ -6,4 +6,4 @@
 
 [shopping car](https://hanwen76.github.io/shopping_car)
 
-[my vue app](https://hanwen76.github.io/dist)
+[my vue app](https://hanwen76.github.io/my_vue_app)
