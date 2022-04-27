@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas starry night</title>
+    <style>
+        #canvas{
+            position: absolute;
+            display: block;
+            left:0;
+            top:0;
+            background: rgb(4, 4, 8);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var opt = {
+        particleAmount: 100,     //粒子个数
+        defaultSpeed: 1,        //粒子运动速度
+        variantSpeed: 1,        //粒子运动速度的变量
+        particleColor: "rgb(20,47,167)",       //粒子的颜色
+        defaultRadius: 2,           //粒子半径
+        variantRadius: 2,           //粒子半径的变量
+    };
+    var particle = [], w,h;
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    init();
+    draw();
+    window.addEventListener("click",function(e){
+        back(e)
+    },false);
+
+    function init(){
+        for(let i = 0;i<opt.particleAmount; i++){
+            particle.push(new Partical());
+        }
+    }
+ 
+    function draw(){
+        ctx.fillStyle = 'rgba(4,4,8,0.3)';
+        ctx.fillRect(0,0,w,h);
+        for(let i = 0;i<particle.length; i++){
+            particle[i].update();
+            particle[i].draw();
+        }
+        window.requestAnimationFrame(draw);
+    }
+
+    function back(e){
+        for(let i = 0;i<particle.length; i++){
+            particle[i].join(e);
+            particle[i].draw();
+        }
+    }
+ 
+    function Partical(){
+        this.x = Math.random()*w;           //粒子的x轴坐标
+        this.y = Math.random()*h;           //粒子的y轴坐标
+        this.speed = opt.defaultSpeed + opt.variantSpeed*Math.random();     //粒子的运动速度
+        this.directionAngle = Math.floor(Math.random()*360);                //粒子运动的方向
+        this.color = opt.particleColor ;                                    //粒子的颜色
+        this.radius = opt.defaultRadius+Math.random()*opt.variantRadius;    //粒子的半径大小
+        this.vector = {
+            x:this.speed * Math.cos(this.directionAngle),       //粒子在x轴的速度
+            y:this.speed * Math.sin(this.directionAngle)        //粒子在y轴的速度
+        }
+        this.update = function(){                   //粒子的更新函数
+            this.border();                          //判断粒子是否到了边界
+            this.x += this.vector.x;                //粒子下一时刻在x轴的坐标
+            this.y += this.vector.y;                //粒子下一时刻在y轴的坐标
+        }
+        this.border = function(){               //判断粒子是都到达边界
+            if(this.x >= w || this.x<= 0){      //如果到达左右边界，就让x轴的速度变为原来的负数
+                this.vector.x *= -1;
+            }
+            if(this.y >= h || this.y <= 0){     //如果到达上下边界，就让y轴的速度变为原来的负数
+                this.vector.y *= -1;
+            }
+        }
+        this.join = function(e){
+            this.x = e.offsetX;
+            this.y = e.offsetY;
+        }
+        this.draw = function(){                 //绘制粒子的函数
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius ,0 ,Math.PI * 2);
+            ctx.closePath();
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+</script>
+</body>
+</html>
